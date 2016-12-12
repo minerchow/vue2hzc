@@ -6,6 +6,7 @@
     	<help-nav></help-nav>
     	<destination></destination>
     	<why></why>
+      <next></next>
   </div>
 </template>
 
@@ -16,6 +17,7 @@ import BookDrive from './components/index/bookDrive.vue';
 import helpNav from './components/index/helpNav.vue';
 import destination from './components/index/destination.vue';
 import why from './components/index/why.vue';
+import next from './components/index/next.vue';
 export default {
   components: {
     Banner,
@@ -23,7 +25,8 @@ export default {
     BookDrive,
     helpNav,
     destination,
-    why
+    why,
+    next
   }
 };
 </script>

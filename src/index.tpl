@@ -7,7 +7,7 @@
     <title>vue2Start</title>
 
   </head>
-  <body>
+  <body style="background-color:#f5f5f5;">
     <div id="app"></div>
   </body>
 </html>
