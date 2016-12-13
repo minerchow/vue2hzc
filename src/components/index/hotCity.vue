@@ -1,8 +1,8 @@
 <template>
 	<div>
-		<div>
-		热门城市
-		</div>
+		
+		热门城市weeee
+		
 	</div>
 </template>
 <script>
