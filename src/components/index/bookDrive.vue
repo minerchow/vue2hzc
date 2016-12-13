@@ -1,10 +1,6 @@
 <template>
 <div>
-  <div class='search-btn'>
-    <div>
-    	<span>{{ msg }}</span>
-    </div>
-  </div>
+  
   <div class='banner-book-drive'>
   <a class="banner-book" title="订单查询" href="###"><img src="http://cdn.qiniu.h5.huizuche.com/image/help/a.png"><span class="book-drice-text">订单查询</span></a>
   <a class="banner-book" title="驾照翻译" href="###"><img src="http://cdn.qiniu.h5.huizuche.com/image/help/b.png"><span class="book-drice-text">驾照翻译</span></a>

@@ -1,5 +1,8 @@
 <template>
   <div>
+    
+    
+
     <div class="shuttle-air clearfix">
     	<div class="self-driving fl">
     		<a class="" href="javascript:void(0)"><img class="" src="../../assets/jiesongji.png"><span>海外租车</span></a>
@@ -9,7 +12,22 @@
     		<a title="海外接送机" href="http://mc.huizuche.com"><img  src="../../assets/zijiache.png"><span>海外接送机</span></a>
     	</div>
     </div>
-    <div class="clearfix">
+    <router-link to="/hotCity">
+      <div class="input-picker-form absolute-element">
+          <div class="location-input-container">
+              <div class="get-car">取车地点</div>
+              <span class="absolute-element location-eng-name trim-text value-selected">Los Angeles International Airport</span>
+              <span class="absolute-element location-chi-name trim-text value-selected" style="top:70px;">洛杉矶国际机场</span>
+          </div>
+      </div>
+    </router-link>
+    
+    <div class="location-input-container absolute-element">
+      <div class="get-car">还车地点</div>
+      <span class="absolute-element location-eng-name trim-text value-selected">Los Angeles International Airport</span>
+      <span class="absolute-element location-chi-name trim-text value-selected" style="top:70px;">洛杉矶国际机场</span>
+    </div>
+    <div class="datepick-wrap clearfix">
 	    <div class="time-input-container fl one" v-on:click="openTakePicker">
 	    	<div class="get-car-time-text">取车时间</div>
 	    	<span class="absolute-element get-car-time-span value-selected">{{takeTime}}</span>
@@ -18,21 +36,31 @@
 	    	<div class="get-car-time-text">还车时间</div>
 	    	<span class="absolute-element get-car-time-span value-selected">{{returnTime}}</span>
 	    </div>
-	</div>
-	<mt-datetime-picker
-    ref="takePicker"
-	month-format="{value} 月"
-	date-format="{value} 日"
-    v-model="pickerValue"
-	@confirm="handleConfirmTake">
-  </mt-datetime-picker>
-  <mt-datetime-picker
-			  ref="returnPicker"
-			  month-format="{value} 月"
-			  date-format="{value} 日"
-			  v-model="pickerValue"
-			  @confirm="handleConfirmReturn">
-  </mt-datetime-picker>
+	   </div>
+     <div class="get-back-car-center">
+       <p class="time-period-tip">
+         共<span>7</span>天
+       </p>
+     </div>
+     <div class='search-btn'>
+        <div>
+          <span>搜索海外租车</span>
+        </div>
+      </div>
+    	<mt-datetime-picker
+        ref="takePicker"
+    	month-format="{value} 月"
+    	date-format="{value} 日"
+        v-model="pickerValue"
+    	@confirm="handleConfirmTake">
+      </mt-datetime-picker>
+      <mt-datetime-picker
+    			  ref="returnPicker"
+    			  month-format="{value} 月"
+    			  date-format="{value} 日"
+    			  v-model="pickerValue"
+    			  @confirm="handleConfirmReturn">
+      </mt-datetime-picker>
   </div>
 </template>
 
@@ -40,7 +68,7 @@
 import Vue from 'vue';
 import { DatetimePicker } from 'mint-ui';
 import Util from '../../common/util.js'
-//import "../ui/dateTimePciker.css"
+
 Vue.component(DatetimePicker.name, DatetimePicker);
 export default {
   name: 'choosePicker',
@@ -135,6 +163,9 @@ export default {
   		}
   	}
   }
+  .datepick-wrap{
+    background:#fff;
+  }
   .time-input-container{
   	width:48.2%;
   	height:82px;
@@ -159,5 +190,65 @@ export default {
   		position:absolute;
   		left:13.3%;
   	}
+  }
+  .input-picker-form.absolute-element{
+    position:relative;
+    background:#fff;
+  }
+  .location-input-container.absolute-element{
+    position:relative;
+    background:#fff;
+  }
+  .location-input-container, .time-input-container{
+    position:relative;
+    
+  }
+  .location-input-container{
+    height:98px;
+    border-bottom:1px solid #e4e4e4;
+    .get-car{
+      display:block;
+      font-size:1.4rem;
+      color:#999;
+      margin-left:3.3%;
+      padding:10px 0 0 0;
+    }
+    span.value-selected{
+      font-weight:normal;
+      font-size:1.2rem;
+      top:40px;
+      left:3.3%;
+      color:#4b4b4b;
+      position:absolute;
+    }
+  }
+  .get-back-car-center{
+    font-size:1.4rem;
+    margin-top:20px;
+    width:100%;
+    display:block;
+    text-align:center;
+    height:20px;
+    clear:both;
+    .time-period-tip{
+      top:30%;
+      width:100%;
+      text-align:center;
+      span{
+        color:rgb(255,126,11)
+      }
+    }
+  }
+  .search-btn{
+  font-size:1.6rem;
+  width:94%;
+  height:48px;
+  line-height:48px;
+  position:relative;
+  left:3%;
+  text-align:center;
+  color:white;
+  background:#ff8400;
+  margin-top:10px;
   }
 </style>
