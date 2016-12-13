@@ -7,6 +7,7 @@
     	<destination></destination>
     	<why></why>
       <next></next>
+      <talk></talk>
   </div>
 </template>
 
@@ -18,6 +19,8 @@ import helpNav from './components/index/helpNav.vue';
 import destination from './components/index/destination.vue';
 import why from './components/index/why.vue';
 import next from './components/index/next.vue';
+import talk from './components/index/talk.vue';
+
 export default {
   components: {
     Banner,
@@ -26,7 +29,8 @@ export default {
     helpNav,
     destination,
     why,
-    next
+    next,
+    talk
   }
 };
 </script>
