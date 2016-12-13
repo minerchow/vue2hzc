@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+      <router-view name="city"></router-view>
+      <router-view name="appIndex"></router-view>
     	<banner></banner>
     	<choose-picker></choose-picker>
     	<book-drive></book-drive>
@@ -31,6 +33,7 @@ export default {
     why,
     next,
     talk
+    
   }
 };
 </script>

@@ -1,5 +1,8 @@
 <template>
   <div>
+    
+    
+
     <div class="shuttle-air clearfix">
     	<div class="self-driving fl">
     		<a class="" href="javascript:void(0)"><img class="" src="../../assets/jiesongji.png"><span>海外租车</span></a>
@@ -9,13 +12,16 @@
     		<a title="海外接送机" href="http://mc.huizuche.com"><img  src="../../assets/zijiache.png"><span>海外接送机</span></a>
     	</div>
     </div>
-    <div class="input-picker-form absolute-element">
-        <div class="location-input-container">
-            <div class="get-car">取车地点</div>
-            <span class="absolute-element location-eng-name trim-text value-selected">Los Angeles International Airport</span>
-            <span class="absolute-element location-chi-name trim-text value-selected" style="top:70px;">洛杉矶国际机场</span>
-        </div>
-    </div>
+    <router-link to="/hotCity">
+      <div class="input-picker-form absolute-element">
+          <div class="location-input-container">
+              <div class="get-car">取车地点</div>
+              <span class="absolute-element location-eng-name trim-text value-selected">Los Angeles International Airport</span>
+              <span class="absolute-element location-chi-name trim-text value-selected" style="top:70px;">洛杉矶国际机场</span>
+          </div>
+      </div>
+    </router-link>
+    
     <div class="location-input-container absolute-element">
       <div class="get-car">还车地点</div>
       <span class="absolute-element location-eng-name trim-text value-selected">Los Angeles International Airport</span>
@@ -41,20 +47,20 @@
           <span>搜索海外租车</span>
         </div>
       </div>
-	<mt-datetime-picker
-    ref="takePicker"
-	month-format="{value} 月"
-	date-format="{value} 日"
-    v-model="pickerValue"
-	@confirm="handleConfirmTake">
-  </mt-datetime-picker>
-  <mt-datetime-picker
-			  ref="returnPicker"
-			  month-format="{value} 月"
-			  date-format="{value} 日"
-			  v-model="pickerValue"
-			  @confirm="handleConfirmReturn">
-  </mt-datetime-picker>
+    	<mt-datetime-picker
+        ref="takePicker"
+    	month-format="{value} 月"
+    	date-format="{value} 日"
+        v-model="pickerValue"
+    	@confirm="handleConfirmTake">
+      </mt-datetime-picker>
+      <mt-datetime-picker
+    			  ref="returnPicker"
+    			  month-format="{value} 月"
+    			  date-format="{value} 日"
+    			  v-model="pickerValue"
+    			  @confirm="handleConfirmReturn">
+      </mt-datetime-picker>
   </div>
 </template>
 
@@ -62,7 +68,7 @@
 import Vue from 'vue';
 import { DatetimePicker } from 'mint-ui';
 import Util from '../../common/util.js'
-//import "../ui/dateTimePciker.css"
+
 Vue.component(DatetimePicker.name, DatetimePicker);
 export default {
   name: 'choosePicker',

@@ -4,7 +4,7 @@ var webpack = require('webpack');
 cooking.set({
   entry: {
     app: './src/main.js',
-    vendor: ['vue','./src/common/common.css']
+    vendor: ['vue','vuex','vue-router','vue-resource','./src/common/common.css']
   },
   dist: './dist',
   template: [{
