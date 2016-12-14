@@ -15,7 +15,7 @@
     <router-link to="/hotCity">
       <div class="input-picker-form absolute-element">
           <div class="location-input-container">
-              <div class="get-car">取车地点</div>
+              <div class="get-car">取车地点{{$store.state.cityName}}</div>
               <span class="absolute-element location-eng-name trim-text value-selected">Los Angeles International Airport</span>
               <span class="absolute-element location-chi-name trim-text value-selected" style="top:70px;">洛杉矶国际机场</span>
           </div>

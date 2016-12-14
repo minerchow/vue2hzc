@@ -22,6 +22,7 @@ import talk from './talk.vue';
 
 export default {
   name: 'appIndex',
+  
   components: {
     Banner,
     ChoosePicker,

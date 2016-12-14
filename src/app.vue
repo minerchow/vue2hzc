@@ -7,9 +7,9 @@
 </template>
 
 <script>
-
+import store from "./store/cityStore.js";
 
 export default {
-  
+  store
 };
 </script>
