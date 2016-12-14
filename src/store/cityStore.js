@@ -1,5 +1,4 @@
-
- import Vue from 'vue';
+import Vue from 'vue';
 import Vuex from 'vuex'
 Vue.use(Vuex);
 const state = {
@@ -14,6 +13,7 @@ const state = {
 const mutations = {
     chooseCity(state,obj) {
         state.cityName  = obj.cityName;
+        state.enName = obj.englishName
     },
     
 }

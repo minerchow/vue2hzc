@@ -15,17 +15,17 @@
     <router-link to="/hotCity">
       <div class="input-picker-form absolute-element">
           <div class="location-input-container">
-              <div class="get-car">取车地点{{$store.state.cityName}}</div>
-              <span class="absolute-element location-eng-name trim-text value-selected">Los Angeles International Airport</span>
-              <span class="absolute-element location-chi-name trim-text value-selected" style="top:70px;">洛杉矶国际机场</span>
+              <div class="get-car">取车地点</div>
+              <span class="absolute-element location-eng-name trim-text value-selected">{{takeEnName}}</span>
+              <span class="absolute-element location-chi-name trim-text value-selected" style="top:70px;">{{takeName}}</span>
           </div>
       </div>
     </router-link>
     
     <div class="location-input-container absolute-element">
       <div class="get-car">还车地点</div>
-      <span class="absolute-element location-eng-name trim-text value-selected">Los Angeles International Airport</span>
-      <span class="absolute-element location-chi-name trim-text value-selected" style="top:70px;">洛杉矶国际机场</span>
+      <span class="absolute-element location-eng-name trim-text value-selected">{{returnEnName}}</span>
+      <span class="absolute-element location-chi-name trim-text value-selected" style="top:70px;">{{returnName}}</span>
     </div>
     <div class="datepick-wrap clearfix">
 	    <div class="time-input-container fl one" v-on:click="openTakePicker">
@@ -76,8 +76,12 @@ export default {
   data:function() {
     return {
       msg: 'choosePicker',
-	  takeTime:Util.formatTime("MM月dd日 hh:mm",new Date()),
-	  returnTime:Util.formatTime("MM月dd日 hh:mm",new Date(new Date().getTime()+864000*1000))
+      takeTime:Util.formatTime("MM月dd日 hh:mm",new Date()),
+	    returnTime:Util.formatTime("MM月dd日 hh:mm",new Date(new Date().getTime()+864000*1000)),
+      takeName:"洛杉矶国际机场",
+      takeEnName:"Los Angeles International Airport",
+      returnName:"洛杉矶国际机场",
+      returnEnName:"Los Angeles International Airport"
     };
   },
   methods: {

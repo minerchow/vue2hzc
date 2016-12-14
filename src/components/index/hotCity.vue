@@ -6,7 +6,7 @@
 			</div>
 			<div class="national-hot-citys">
 				<ul class="clearfix">
-					<li class="fl" v-for="cityItem in cityList" @click="chooseCity({cityName:cityItem.name})">{{cityItem.name}}</li>
+					<li class="fl" v-for="cityItem in cityList" @click="chooseCity({cityName:cityItem.detailName,englishName:cityItem.englishName})">{{cityItem.name}}</li>
 					
 				</ul>
 			</div>
@@ -24,11 +24,13 @@ export default {
       		{
       			"no":"LAX",
       			"name":"洛杉矶",
+      			"detailName":"洛杉矶国际机场",
       			"englishName":"Los Angeles International Airport"
       		},
       		{
       			"no":"SFO",
       			"name":"旧金山",
+      			"detailName":"旧金山国际机场",
       			"englishName":"San Francisco International Airport"
       		}
       	]
