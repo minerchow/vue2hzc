@@ -19,10 +19,21 @@ import destination from './destination.vue';
 import why from './why.vue';
 import next from './next.vue';
 import talk from './talk.vue';
-
+import Vue from 'vue';
+import VueResource from 'vue-resource';
+Vue.use(VueResource);
 export default {
   name: 'appIndex',
-  
+  mounted:function(){
+    console.log(1);
+    this.$http.get('/Api/Car/GetBaners').then((response) => {
+    // success callback
+    console.log(response);
+
+  }, (response) => {
+    // error callback
+  });
+  },
   components: {
     Banner,
     ChoosePicker,
