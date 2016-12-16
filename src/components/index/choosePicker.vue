@@ -12,7 +12,7 @@
     		<a title="海外接送机" href="http://mc.huizuche.com"><img  src="../../assets/zijiache.png"><span>海外接送机</span></a>
     	</div>
     </div>
-    <router-link to="/hotCity">
+    <router-link :to="{name:'hotCity',params:{ typeCity:1}}">
       <div class="input-picker-form absolute-element">
           <div class="location-input-container">
               <div class="get-car">取车地点</div>

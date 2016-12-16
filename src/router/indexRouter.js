@@ -21,7 +21,7 @@ const router = new VueRouter({
 	    }
 	},
 	{
-		path: '/hotCity',components:
+		path: '/hotCity/:typeCity',name:'hotCity',components:
 	    {
 	    	city:city
 	    }
