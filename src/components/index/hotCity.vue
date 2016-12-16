@@ -6,7 +6,7 @@
 			</div>
 			<div class="national-hot-citys">
 				<ul class="clearfix">
-					<li class="fl" v-for="cityItem in cityList" @click="chooseCity({cityName:cityItem.detailName,englishName:cityItem.englishName})">{{cityItem.name}}</li>
+					<li class="fl" v-for="cityItem in cityList" @click="chooseCity({cityName:cityItem.detailName,englishName:cityItem.englishName,cityType:typeCity})">{{cityItem.name}}</li>
 					
 				</ul>
 			</div>
@@ -14,7 +14,9 @@
 	</div>
 </template>
 <script>
- import { mapGetters, mapActions } from 'vuex'
+
+ import { mapGetters, mapActions } from 'vuex';
+
 export default {
   name: 'hotCity',
 
@@ -33,13 +35,15 @@ export default {
       			"detailName":"旧金山国际机场",
       			"englishName":"San Francisco International Airport"
       		}
-      	]
+      	],
+      	typeCity:0
     };
   },
   mounted:function(){
   	//console.log(this.$route.params.typeCity)
+  	this.typeCity = this.$route.params.typeCity;
   },
-
+  
   methods: mapActions([
 	      'chooseCity'
 	      

@@ -3,7 +3,8 @@ import Vuex from 'vuex'
 Vue.use(Vuex);
 const state = {
     cityName:"",
-    enName:""
+    enName:"",
+    cityType:0
 }
 
 // mutations are operations that actually mutates the state.
@@ -14,7 +15,8 @@ const state = {
 const mutations = {
     chooseCity(state,obj) {
         state.cityName  = obj.cityName;
-        state.enName = obj.englishName
+        state.enName = obj.englishName;
+        state.cityType = obj.cityType;
     },
     
 }
