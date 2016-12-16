@@ -1,6 +1,7 @@
 <template>
   <div>
-  <div class="index-top">
+  <div>{{item}}</div>
+  <div class="index-top" >
   	<img src="http://cdn.qiniu.h5.huizuche.com/image/title/a.png" class="son1">
   	<a href="###">
   		<img src="http://cdn.qiniu.h5.huizuche.com/image/title/b.png" class="son2" />
@@ -53,6 +54,11 @@ export default {
     return {
       msg: ''
     };
+  },
+  props:{
+    item:{
+
+    }
   }
 };
 </script>

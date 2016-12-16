@@ -1,6 +1,6 @@
 <template>
 		<div>
-			<banner></banner>
+			<banner :item:='items'></banner>
             <choose-picker></choose-picker>
             <book-drive></book-drive>
             <help-nav></help-nav>
@@ -25,15 +25,23 @@ Vue.use(VueResource);
 export default {
   name: 'appIndex',
   mounted:function(){
-    console.log(1);
-    this.$http.get('/Api/Car/GetBaners').then((response) => {
+    Vue.http.options.emulateJSON = true;
+    this.$http.post('/Api/Car/GetBaners/').then((response) => {
     // success callback
     console.log(response);
+    //传递数据到子模块
 
   }, (response) => {
     // error callback
-  });
-  },
+  })
+},
+ data:function(){
+      return{
+        items:'测试传递数据'
+      }
+        
+ },
+  
   components: {
     Banner,
     ChoosePicker,
@@ -44,6 +52,13 @@ export default {
     next,
     talk
     
-  }
+  },
+  //传递数据到子模块中
+  // Vue.components('banner',{
+  //   props:['msg'],
+  //   template:'<div>msg:{{msg}}</div>'
+
+  // })
+
 };
 </script>
