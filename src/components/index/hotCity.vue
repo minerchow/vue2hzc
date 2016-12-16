@@ -37,8 +37,9 @@ export default {
     };
   },
   mounted:function(){
-  	
+  	//console.log(this.$route.params.typeCity)
   },
+
   methods: mapActions([
 	      'chooseCity'
 	      

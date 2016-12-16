@@ -2,7 +2,8 @@ import Vue from 'vue';
 import Vuex from 'vuex'
 Vue.use(Vuex);
 const state = {
-    cityName:""
+    cityName:"",
+    enName:""
 }
 
 // mutations are operations that actually mutates the state.
