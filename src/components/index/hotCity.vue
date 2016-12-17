@@ -2,12 +2,13 @@
 	<div>
 		<div class="hot-city-wrap">
 			<div class="hot-citys-world">
-				<div class="hot-citys-tittle">热门城市</div>		
+				<div class="hot-citys-tittle" @click="ttt()">热门城市{{getCity}}</div>		
 			</div>
 			<div class="national-hot-citys">
 				<ul class="clearfix">
+					 <router-link :to="{name:'appIndex'}">
 					<li class="fl" v-for="cityItem in cityList" @click="chooseCity({cityName:cityItem.detailName,englishName:cityItem.englishName,cityType:typeCity})">{{cityItem.name}}</li>
-					
+					</router-link>
 				</ul>
 			</div>
 		</div>	
@@ -43,7 +44,9 @@ export default {
   	//console.log(this.$route.params.typeCity)
   	this.typeCity = this.$route.params.typeCity;
   },
-  
+  computed: mapGetters([
+    'getCity'
+  ]),
   methods: mapActions([
 	      'chooseCity'
 	      
@@ -74,6 +77,7 @@ export default {
 				padding:0 0  0 10px;
 				height:40px;
 				line-height:40px;
+				color:#333;
 			}
 		}
 	}

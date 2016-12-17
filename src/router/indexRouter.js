@@ -15,7 +15,7 @@ const router = new VueRouter({
   		 path: '/', redirect: '/appIndex' 
   	},
     { 
-    	path: '/appIndex',components:
+    	path: '/appIndex',name:'appIndex',components:
 	    {
 	    	appIndex:appIndex
 	    }

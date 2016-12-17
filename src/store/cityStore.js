@@ -1,5 +1,7 @@
 import Vue from 'vue';
-import Vuex from 'vuex'
+import Vuex from 'vuex';
+
+
 Vue.use(Vuex);
 const state = {
     cityName:"",
@@ -26,17 +28,23 @@ const mutations = {
 const actions = {
     chooseCity(context,obj){
        
-        context.commit('chooseCity',obj)
+        context.commit('chooseCity',obj);
+        
     },
     
 }
 
-
+const getters = {
+    getCity:state=>state.cityName,
+    getType:state=>state.cityType,
+    getEnName:state=>state.enName
+}
 
 // A Vuex instance is created by combining the state, mutations, actions,
 // and getters.
 export default new Vuex.Store({
     state,
+    getters,
     actions,
     mutations
 })

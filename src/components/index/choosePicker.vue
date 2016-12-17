@@ -21,12 +21,13 @@
           </div>
       </div>
     </router-link>
-    
+    <router-link :to="{name:'hotCity',params:{ typeCity:2}}">
     <div class="location-input-container absolute-element">
       <div class="get-car">还车地点</div>
       <span class="absolute-element location-eng-name trim-text value-selected">{{returnEnName}}</span>
       <span class="absolute-element location-chi-name trim-text value-selected" style="top:70px;">{{returnName}}</span>
     </div>
+    </router-link>
     <div class="datepick-wrap clearfix">
 	    <div class="time-input-container fl one" v-on:click="openTakePicker">
 	    	<div class="get-car-time-text">取车时间</div>
@@ -39,7 +40,7 @@
 	   </div>
      <div class="get-back-car-center">
        <p class="time-period-tip">
-         共<span>7</span>天
+         共<span>{{betweenTimeNum}}</span>天
        </p>
      </div>
      <div class='search-btn'>
@@ -48,13 +49,16 @@
         </div>
       </div>
     	<mt-datetime-picker
+        :end-date="endDateTake"
         ref="takePicker"
-    	month-format="{value} 月"
+        month-format="{value} 月"
     	date-format="{value} 日"
         v-model="pickerValue"
+      
     	@confirm="handleConfirmTake">
       </mt-datetime-picker>
       <mt-datetime-picker
+            :start-date="startDateReturn"
     			  ref="returnPicker"
     			  month-format="{value} 月"
     			  date-format="{value} 日"
@@ -68,23 +72,54 @@
 import Vue from 'vue';
 import { DatetimePicker } from 'mint-ui';
 import Util from '../../common/util.js'
-
+import { mapGetters, mapActions } from 'vuex';
 Vue.component(DatetimePicker.name, DatetimePicker);
 export default {
   name: 'choosePicker',
+  
+  mounted:function(){
+    this.takeTimeString = new Date(),
+    this.returnTimeString = new Date(new Date().getTime()+864000*1000),
+    this.betweenTimeNum = Math.floor((this.returnTimeString - this.takeTimeString)/(24*3600*1000));
+    this.takeTimeStringFormat = new Date().getTime();
+    this.startDateReturn = this.takeTimeString;
+    
+    if(this.getType == 1){
+      this.takeName = this.getCity;
+      this.returnName = this.getCity;
+      this.takeEnName = this.getEnName;
+      this.returnEnName = this.getEnName;
+    }
+    else if(this.getType == 2){
 
+        console.log(this.getCity);
+        console.log(this.getEnName);
+        this.returnName = this.getCity;
+        this.returnEnName = this.getEnName;
+    }
+  },
   data:function() {
+    var that = this;
+    
     return {
       msg: 'choosePicker',
       takeTime:Util.formatTime("MM月dd日 hh:mm",new Date()),
 	    returnTime:Util.formatTime("MM月dd日 hh:mm",new Date(new Date().getTime()+864000*1000)),
+      nowDate : new Date(),
       takeName:"洛杉矶国际机场",
       takeEnName:"Los Angeles International Airport",
       returnName:"洛杉矶国际机场",
-      returnEnName:"Los Angeles International Airport"
+      returnEnName:"Los Angeles International Airport",
+      betweenTimeNum:"",
+      startDateReturn:new Date(),
+      endDateTake:new Date()
     };
   },
+ computed: mapGetters([
+        'getCity','getType','getEnName'
+  ]),
   methods: {
+    
 	  openTakePicker:function() {
         this.$refs.takePicker.open();
 
@@ -93,11 +128,22 @@ export default {
 		  this.$refs.returnPicker.open();
 	  },
 	  handleConfirmTake:function(value){
+      this.takeTimeString = value;
+      this.startDateReturn = this.takeTimeString;
+      this.takeTimeStringFormat = value.getTime();
 		  this.takeTime = Util.formatTime("MM月dd日 hh:mm",value.getTime());
-		  console.log(this.takeTime)
+		  var betweenTime = this.returnTimeStringFormat - this.takeTimeStringFormat;
+      this.betweenTimeNum = Math.floor(betweenTime/(24*3600*1000))
 	  },
 	  handleConfirmReturn:function(value){
-		  this.returnTime = value.formatTime("MM月dd日 hh:mm",value.getTime());
+      this.returnTimeStringFormat= value.getTime();
+      this.returnTimeString = value;
+      this.endDateTake = this.returnTimeString;
+		  this.returnTime = Util.formatTime("MM月dd日 hh:mm",value.getTime());
+      var betweenTime = this.returnTimeStringFormat - this.takeTimeStringFormat;
+      console.log(this.returnTimeStringFormat);
+      console.log(this.takeTimeStringFormat);
+      this.betweenTimeNum = Math.floor(betweenTime/(24*3600*1000))
 	  }
   }
 };
