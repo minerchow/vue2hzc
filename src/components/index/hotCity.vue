@@ -7,7 +7,7 @@
 			<div class="national-hot-citys">
 				<ul class="clearfix">
 					 <router-link :to="{name:'appIndex'}">
-					<li class="fl" v-for="cityItem in cityList" @click="chooseCity({cityName:cityItem.detailName,englishName:cityItem.englishName,cityType:typeCity})">{{cityItem.name}}</li>
+					<li class="fl" v-for="cityItem in cityList" @click="chooseCity({cityName:cityItem.detailName,englishName:cityItem.englishName,cityType:typeCity,cityNo:cityItem.no})">{{cityItem.name}}</li>
 					</router-link>
 				</ul>
 			</div>

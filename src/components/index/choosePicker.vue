@@ -44,7 +44,7 @@
        </p>
      </div>
      <div class='search-btn'>
-        <div>
+        <div v-on:click="linkCarList">
           <span>搜索海外租车</span>
         </div>
       </div>
@@ -77,6 +77,9 @@ Vue.component(DatetimePicker.name, DatetimePicker);
 export default {
   name: 'choosePicker',
   
+  created:function(){
+   
+  },
   mounted:function(){
     this.takeTimeString = new Date(),
     this.returnTimeString = new Date(new Date().getTime()+864000*1000),
@@ -84,11 +87,13 @@ export default {
     this.takeTimeStringFormat = new Date().getTime();
     this.startDateReturn = this.takeTimeString;
     
+
     if(this.getType == 1){
       this.takeName = this.getCity;
       this.returnName = this.getCity;
       this.takeEnName = this.getEnName;
       this.returnEnName = this.getEnName;
+      this.takeNo = this.getNo;
     }
     else if(this.getType == 2){
 
@@ -96,6 +101,8 @@ export default {
         console.log(this.getEnName);
         this.returnName = this.getCity;
         this.returnEnName = this.getEnName;
+        this.returnNo = this.getNo;
+        console.log(this.returnNo)
     }
   },
   data:function() {
@@ -112,20 +119,24 @@ export default {
       returnEnName:"Los Angeles International Airport",
       betweenTimeNum:"",
       startDateReturn:new Date(),
-      endDateTake:new Date()
+      endDateTake:new Date(),
+      takeNo:"LAX",
+      RETURNnO:"LAX"
     };
   },
  computed: mapGetters([
-        'getCity','getType','getEnName'
+        'getCity','getType','getEnName','getNo'
   ]),
   methods: {
     
 	  openTakePicker:function() {
         this.$refs.takePicker.open();
+        
 
       },
 	  openReturnPicker:function(){
 		  this.$refs.returnPicker.open();
+      
 	  },
 	  handleConfirmTake:function(value){
       this.takeTimeString = value;
@@ -133,7 +144,8 @@ export default {
       this.takeTimeStringFormat = value.getTime();
 		  this.takeTime = Util.formatTime("MM月dd日 hh:mm",value.getTime());
 		  var betweenTime = this.returnTimeStringFormat - this.takeTimeStringFormat;
-      this.betweenTimeNum = Math.floor(betweenTime/(24*3600*1000))
+      this.betweenTimeNum = Math.floor(betweenTime/(24*3600*1000));
+      
 	  },
 	  handleConfirmReturn:function(value){
       this.returnTimeStringFormat= value.getTime();
@@ -143,8 +155,13 @@ export default {
       var betweenTime = this.returnTimeStringFormat - this.takeTimeStringFormat;
       console.log(this.returnTimeStringFormat);
       console.log(this.takeTimeStringFormat);
-      this.betweenTimeNum = Math.floor(betweenTime/(24*3600*1000))
-	  }
+      this.betweenTimeNum = Math.floor(betweenTime/(24*3600*1000));
+
+	  },
+    linkCarList:function(){
+       
+
+    }
   }
 };
 </script>

@@ -6,7 +6,8 @@ Vue.use(Vuex);
 const state = {
     cityName:"",
     enName:"",
-    cityType:0
+    cityType:0,
+    cityNo:""
 }
 
 // mutations are operations that actually mutates the state.
@@ -19,6 +20,7 @@ const mutations = {
         state.cityName  = obj.cityName;
         state.enName = obj.englishName;
         state.cityType = obj.cityType;
+        state.cityNo = obj.cityNo;
     },
     
 }
@@ -37,7 +39,8 @@ const actions = {
 const getters = {
     getCity:state=>state.cityName,
     getType:state=>state.cityType,
-    getEnName:state=>state.enName
+    getEnName:state=>state.enName,
+    getNo:state=>state.cityNo
 }
 
 // A Vuex instance is created by combining the state, mutations, actions,

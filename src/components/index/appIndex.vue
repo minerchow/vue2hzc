@@ -1,6 +1,6 @@
 <template>
 		<div>
-			<banner :item:='items'></banner>
+			<banner :item='items'></banner>
             <choose-picker></choose-picker>
             <book-drive></book-drive>
             <help-nav></help-nav>
@@ -28,7 +28,7 @@ export default {
     Vue.http.options.emulateJSON = true;
     this.$http.post('/Api/Car/GetBaners/').then((response) => {
     // success callback
-    console.log(response);
+    this.items = response.body.Bans
     //传递数据到子模块
 
   }, (response) => {
@@ -37,7 +37,7 @@ export default {
 },
  data:function(){
       return{
-        items:'测试传递数据'
+        items:[]
       }
         
  },
