@@ -37,7 +37,7 @@ cooking.set({
     }
   ],
   
-  publicPath: toPath,
+  publicPath: toPath(),
   assetsPath: 'static',
   urlLoaderLimit: 10000,
   extractCSS: false,

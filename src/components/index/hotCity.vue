@@ -30,6 +30,7 @@ export default {
       			"detailName":"洛杉矶国际机场",
       			"englishName":"Los Angeles International Airport"
       		},
+
       		{
       			"no":"SFO",
       			"name":"旧金山",
@@ -37,6 +38,7 @@ export default {
       			"englishName":"San Francisco International Airport"
       		}
       	],
+      	
       	typeCity:0
     };
   },
