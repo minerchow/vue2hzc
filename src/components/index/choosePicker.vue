@@ -49,7 +49,8 @@
         </div>
       </div>
     	<mt-datetime-picker
-        :end-date="endDateTake"
+        :start-date="startDateTake"
+        
         ref="takePicker"
         month-format="{value} 月"
     	date-format="{value} 日"
@@ -120,6 +121,7 @@ export default {
       betweenTimeNum:"",
       startDateReturn:new Date(),
       endDateTake:new Date(),
+      startDateTake:new Date(),
       takeNo:"LAX",
       RETURNnO:"LAX"
     };
