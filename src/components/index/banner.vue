@@ -18,7 +18,7 @@
 
   </div>
 </template>
-<script type="text/ecmascript-6">
+<script>
 import Vue from 'vue';
 import { Swipe, SwipeItem } from 'mint-ui';
 Vue.component(Swipe.name, Swipe);

@@ -16,6 +16,8 @@ make dist
 ISC
 # 目前开发模式痛点
 前后端没有分离，不能使用自动化工具，发布流程依赖后端
+# 所用到的技术栈
+vue全家桶（vue,vue-router,vue-resource,vuex） cooking mint-ui
 # 为什么使用cooking做自动化打包工具
 cooking是eleme团队开发的自动化打包工具，它简化了webpack配置，提供更加人性化配置
 # 为什么选择vue而不是react
